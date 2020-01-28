@@ -1,0 +1,37 @@
+<section class="display_cart" *ngIf='cartLoading === false'>
+  <div class="cart_blocks" *ngFor="let item of cartArray">
+    <img class="img_size" src="{{item.img_url}}" alt="item_image">
+    <div class="cart_price">
+      <div class="price_align">
+        {{item.name}}
+      </div>
+      <div class="price_align">
+        <em class="fa items_details">&#xf156;</em><span class="font_weight">{{item.discountedPrice}}</span>
+        <del *ngIf="item.discount != 0" class="margin_left">{{item.price}}</del>
+        <span *ngIf="item.discount != 0" class="discount_font_color margin_left">{{item.discount}}% off</span>
+      </div>
+    </div>
+    <div class="remove_button">
+      <button class="cta_addToCart" (click)="removeItem(item.id)">Remove</button>
+    </div>
+  </div>
+  <div *ngFor="let item of cartArray" class="price_details">
+    <p class="price_details_right">{{priceDetails}}</p>
+    <div class="margin_top_price">
+      <div class="price_margin">
+        Price (1) item : <em class="fa items_details">&#xf156;</em>{{item.price}}
+      </div>
+      <div class="price_margin">
+        Discount : <em class="fa items_details">&#xf156;</em>{{item.discountAmount}}
+      </div>
+      <div class="price_margin_payable">
+        <p>Total Payable : <em class="fa items_details">&#xf156;</em>{{item.discountedPrice}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="empty_cart_message" *ngIf="removeCart === true && loading === false">
+  <p>{{cartMessage}}</p>
+  <button class="cta_addToCart" (click)="redirectToCatalogue()">{{addItemToCartButton}}</button>
+</section>
+<div *ngIf="loading === true || cartLoading === true" class="loader loader_alignment">Loading...</div>

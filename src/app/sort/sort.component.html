@@ -1,0 +1,7 @@
+<div class="display_sort_by">
+<p class="margin_gap_sort_by"><strong>Sort By</strong></p>
+<p class="margin_gap" (click)="highToLow()" [ngClass]="{'isActive': isActiveHigh === 1}">Price -- High to Low</p>
+<p class="margin_gap" (click)="lowToHigh()" [ngClass]="{'isActive': isActive === 1}">Price -- Low to High</p>
+<p class="margin_gap" (click)="sortbyDiscount()" [ngClass]="{'isActive': isActiveDiscount === 1}">Discount</p>
+</div>
+<!-- <input type="range" [(ngModel)]="valuePrice" min="0" [max]="maximumValue" step="100" (ngModelChange)="sliderEvent($event)"> -->

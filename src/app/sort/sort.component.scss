@@ -1,0 +1,28 @@
+.display_sort_by {
+    display: flex;
+    padding: 20px;
+}
+.margin_gap {
+    margin-right: 20px;
+    color: #808080;
+    cursor: pointer;
+}
+.margin_gap_sort_by {
+    cursor: pointer;
+    color: #000;
+    margin-right: 20px;
+}
+.isActive {
+    color: #009ade;
+    text-decoration: underline;
+    font-weight: bold;
+}
+@media only screen and (max-width: 767px) {
+    .display_sort_by {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .margin_gap {
+        margin-right: 10px;
+    }
+}

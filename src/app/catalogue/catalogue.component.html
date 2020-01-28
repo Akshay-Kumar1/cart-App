@@ -1,0 +1,28 @@
+<app-sort [arrayOfItemsToSort] = 'arrayOfItems'></app-sort>
+<div class="sideBar">
+  <app-filter></app-filter>
+</div>
+<div class="main" *ngIf="catalogueLoading === false">
+  <div *ngFor="let items of arrayOfItems">
+    <div>
+      <img src="{{items.img_url}}" alt="image" class="image_size">
+      <div class="item_details">
+        <p class="no_margin_name" [innerHTML]="items.name"></p>
+        <div class="display_price">
+          <p><em class="fa font-size">&#xf156;</em>
+            <strong [innerHTML]="items.discountedPrice" class="margin_gap">
+            </strong>
+          </p>
+          <p *ngIf="items.discount != 0"><em class="fa items_details">&#xf156;</em>
+            <del [innerHTML]="items.price" class="margin_gap"></del>
+          </p>
+          <p *ngIf="items.discount != 0" class="discount_font_color">{{items.discount}}% off</p>
+        </div>
+        <div class="buttonAlign">
+          <button class="cta_addToCart" (click)="addToCart(items.id)">{{buttonName}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="catalogueLoading === true" class="loader">Loading...</div>
