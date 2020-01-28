@@ -19,6 +19,7 @@ export class CatalogueComponent implements OnInit {
   buttonName = 'Add to Cart';
   id: string;
   catalogueLoading = false;
+  message: any;
   public vm: CartViewModel = new CartViewModel();
   constructor(private userService: UserServiceService , private dataService: DataService , private router: Router) { }
 
@@ -60,5 +61,9 @@ export class CatalogueComponent implements OnInit {
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  receiveMessage(event) {
+    this.arrayOfItems = event;
   }
 }

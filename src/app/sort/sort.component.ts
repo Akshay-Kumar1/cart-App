@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SortComponent implements OnInit {
   @Input() arrayOfItemsToSort: any;
+  @Output() messageEvent = new EventEmitter();
   public valuePrice = 0;
+  minimumValue = 0;
   maximumValue = 1000;
   isActive = 0;
   isActiveHigh = 0;
@@ -43,8 +45,7 @@ export class SortComponent implements OnInit {
     });
   }
   sliderEvent(event) {
-    this.arrayOfItemsToSort.filter((itemPriceLow) => {
-      return (itemPriceLow.discountedPrice <= event);
-  });
+    this.arrayOfItemsToSort = this.arrayOfItemsToSort.filter(item => item.discountedPrice >= event);
+    this.messageEvent.emit(this.arrayOfItemsToSort);
   }
 }

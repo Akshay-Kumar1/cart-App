@@ -1,4 +1,4 @@
-<app-sort [arrayOfItemsToSort] = 'arrayOfItems'></app-sort>
+<app-sort [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)"></app-sort>
 <div class="sideBar">
   <app-filter></app-filter>
 </div>
