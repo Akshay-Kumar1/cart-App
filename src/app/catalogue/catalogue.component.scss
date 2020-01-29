@@ -12,8 +12,8 @@
     margin-bottom: 10px;
 }
 .image_size {
-    width: 175px;
-    height: 160px;
+    width: 150px;
+    height: 155px;
     border-radius: 4px;
 }
 .sample {
@@ -62,7 +62,7 @@
 }
 @media only screen and (max-width: 767px) {
     .margin_gap {
-        margin-right: 10px;
+        margin-right: 8px;
     }
     .main {
         text-align: center;
@@ -77,5 +77,8 @@
     }
     .buttonAlign {
         margin: 0;
+    }
+    .mobile_width {
+        width: 50vw !important;
     }
 }

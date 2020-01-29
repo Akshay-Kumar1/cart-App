@@ -3,8 +3,7 @@
   <app-filter [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)"></app-filter>
 </div>
 <div class="main" *ngIf="catalogueLoading === false">
-  <div *ngFor="let items of arrayOfItems">
-    <div>
+  <div class="mobile_width" *ngFor="let items of arrayOfItems">
       <img src="{{items.img_url}}" alt="image" class="image_size">
       <div class="item_details">
         <p class="no_margin_name" [innerHTML]="items.name"></p>
@@ -22,7 +21,6 @@
           <button class="cta_addToCart" (click)="addToCart(items.id)">{{buttonName}}</button>
         </div>
       </div>
-    </div>
   </div>
 </div>
 <div *ngIf="catalogueLoading === true" class="loader">Loading...</div>
