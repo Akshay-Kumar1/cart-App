@@ -60,6 +60,14 @@
     font-weight: bold;
     cursor: pointer;
 }
+.loader_alignment {
+    margin-top: 15%;
+}
+.noFilter_text {
+    text-align: center;
+    margin-top: 5%;
+    color: #333;
+}
 @media only screen and (max-width: 767px) {
     .margin_gap {
         margin-right: 8px;

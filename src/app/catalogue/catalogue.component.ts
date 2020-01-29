@@ -20,7 +20,7 @@ export class CatalogueComponent implements OnInit {
   id: string;
   catalogueLoading = false;
   message: any;
-  filterLoader: any;
+  noFilteredItems = false;
   public vm: CartViewModel = new CartViewModel();
   constructor(private userService: UserServiceService , private dataService: DataService , private router: Router) { }
 
@@ -65,12 +65,13 @@ export class CatalogueComponent implements OnInit {
   }
 
   receiveMessage(event) {
-    this.arrayOfItems = event;
-  }
-  receiveFilter(event) {
     setTimeout(() => {
       this.catalogueLoading = false;
     }, 1500);
+    this.arrayOfItems = event;
     this.catalogueLoading = true;
+  }
+  filterStatus(event) {
+    this.noFilteredItems = event;
   }
 }

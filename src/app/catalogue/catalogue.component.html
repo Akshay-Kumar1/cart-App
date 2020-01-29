@@ -1,8 +1,8 @@
 <app-sort [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)"></app-sort>
 <div class="sideBar">
-  <app-filter [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)" (filterEvent)="receiveFilter($event)"></app-filter>
+  <app-filter [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)" (filterEvent)="filterStatus($event)"></app-filter>
 </div>
-<div class="main" *ngIf="catalogueLoading === false || filterLoader === false">
+<div class="main" *ngIf="catalogueLoading === false">
   <div class="mobile_width" *ngFor="let items of arrayOfItems">
       <img src="{{items.img_url}}" alt="image" class="image_size">
       <div class="item_details">
@@ -23,4 +23,7 @@
       </div>
   </div>
 </div>
-<div *ngIf="catalogueLoading === true || filterLoader === true" class="loader loader_alignment"></div>
+<div class="noFilter_text" *ngIf="noFilteredItems === true && catalogueLoading === false">
+  Uh oh ! No items for the applied filter !
+</div>
+<div *ngIf="catalogueLoading === true" class="loader loader_alignment"></div>

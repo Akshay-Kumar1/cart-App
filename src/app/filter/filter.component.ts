@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { setPreviousOrParentTNode } from '@angular/core/src/render3/state';
 
 @Component({
   selector: 'app-filter',
@@ -11,9 +12,11 @@ export class FilterComponent implements OnInit {
   @Output() messageEvent = new EventEmitter();
   @Output() filterEvent = new EventEmitter();
   public valuePrice = 0;
+  step = 200;
   minimumValue = 0;
   maximumValue = 1000;
   filterItemLoad = false;
+  noFilteredItems = false;
   constructor( private dataService: DataService) { }
 
   ngOnInit() {
@@ -24,7 +27,9 @@ export class FilterComponent implements OnInit {
   }
   filterItems() {
       this.messageEvent.emit(this.arrayOfItemsToSort);
-      this.filterEvent.emit(this.filterItemLoad);
+      if (this.arrayOfItemsToSort.length === 0) {
+        this.noFilteredItems = true;
+        this.filterEvent.emit( this.noFilteredItems);
+      }
   }
-
 }
