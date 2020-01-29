@@ -84,7 +84,7 @@
         display: block;
     }
     .img_size {
-        height: 75px;
+        height: 80px;
         width: 90px;
     }
     .remove_button {
@@ -92,11 +92,16 @@
         margin-top: 3%;
     }
     .cart_blocks {
-        width: auto;
+        width: 90%;
+        padding: 15px;
     }
     .price_details {
-        width: auto;
+        width: 90%;
         margin-top: 20px;
+        margin-left: 0;
+    }
+    .loader_alignment {
+        margin-top: 80%;
     }
 }
 

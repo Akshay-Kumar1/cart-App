@@ -9,9 +9,11 @@ import { DataService } from '../services/data.service';
 export class FilterComponent implements OnInit {
   @Input() arrayOfItemsToSort: any;
   @Output() messageEvent = new EventEmitter();
+  @Output() filterEvent = new EventEmitter();
   public valuePrice = 0;
   minimumValue = 0;
   maximumValue = 1000;
+  filterItemLoad = false;
   constructor( private dataService: DataService) { }
 
   ngOnInit() {
@@ -21,7 +23,8 @@ export class FilterComponent implements OnInit {
     this.arrayOfItemsToSort = this.arrayOfItemsToSort.filter(item => item.discountedPrice >= event);
   }
   filterItems() {
-    this.messageEvent.emit(this.arrayOfItemsToSort);
+      this.messageEvent.emit(this.arrayOfItemsToSort);
+      this.filterEvent.emit(this.filterItemLoad);
   }
 
 }
