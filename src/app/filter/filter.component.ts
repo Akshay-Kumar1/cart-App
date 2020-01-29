@@ -12,7 +12,7 @@ export class FilterComponent implements OnInit {
   @Output() messageEvent = new EventEmitter();
   @Output() filterEvent = new EventEmitter();
   public valuePrice = 0;
-  step = 200;
+  step = 100;
   minimumValue = 0;
   maximumValue = 1000;
   filterItemLoad = false;
