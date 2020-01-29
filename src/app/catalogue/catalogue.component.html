@@ -1,6 +1,6 @@
 <app-sort [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)"></app-sort>
 <div class="sideBar">
-  <app-filter></app-filter>
+  <app-filter [arrayOfItemsToSort] = 'arrayOfItems' (messageEvent)="receiveMessage($event)"></app-filter>
 </div>
 <div class="main" *ngIf="catalogueLoading === false">
   <div *ngFor="let items of arrayOfItems">

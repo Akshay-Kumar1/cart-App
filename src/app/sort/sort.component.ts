@@ -8,9 +8,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class SortComponent implements OnInit {
   @Input() arrayOfItemsToSort: any;
   @Output() messageEvent = new EventEmitter();
-  public valuePrice = 0;
-  minimumValue = 0;
-  maximumValue = 1000;
   isActive = 0;
   isActiveHigh = 0;
   isActiveDiscount = 0;
@@ -43,9 +40,5 @@ export class SortComponent implements OnInit {
     this.arrayOfItemsToSort.sort(( lowDiscount , highDiscount) => {
       return lowDiscount.discount - highDiscount.discount;
     });
-  }
-  sliderEvent(event) {
-    this.arrayOfItemsToSort = this.arrayOfItemsToSort.filter(item => item.discountedPrice >= event);
-    this.messageEvent.emit(this.arrayOfItemsToSort);
   }
 }

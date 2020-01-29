@@ -1,4 +1,7 @@
 <section class="padding_filter">
-  <p>Filters</p>
-  <button class="filter_button">Apply</button>
+  <p class="bold">Filters</p>
+  <div class="slidecontainer">
+    <input type="range" class="slider" id="myRange" [(ngModel)]="valuePrice" [min]="minimumValue" [max]="maximumValue" step="200" (ngModelChange)="sliderEvent($event)">
+  </div>
+  <button class="filter_button"(click)="filterItems()">Apply</button>
 </section>
