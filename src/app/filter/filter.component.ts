@@ -11,10 +11,6 @@ export class FilterComponent implements OnInit {
   @Input() arrayOfItemsToSort: any;
   @Output() messageEvent = new EventEmitter();
   @Output() filterEvent = new EventEmitter();
-  public valuePrice = 0;
-  step = 100;
-  minimumValue = 0;
-  maximumValue = 1000;
   filterItemLoad = false;
   noFilteredItems = false;
   value: number = 100;
