@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
 import { FormsModule } from '@angular/forms';
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule ,
+    Ng5SliderModule
   ],
   providers: [ HttpServiceService],
   bootstrap: [AppComponent],

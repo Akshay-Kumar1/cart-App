@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { setPreviousOrParentTNode } from '@angular/core/src/render3/state';
+import { Options , LabelType} from 'ng5-slider';
 
 @Component({
   selector: 'app-filter',
@@ -17,13 +17,29 @@ export class FilterComponent implements OnInit {
   maximumValue = 1000;
   filterItemLoad = false;
   noFilteredItems = false;
+  value: number = 100;
+  options: Options = {
+    floor: 0,
+    ceil: 600,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min price:</b> \u20B9' + value;
+        case LabelType.High:
+          return '<b>Max price:</b> \u20B9' + value;
+        default:
+          return '\u20B9' + value;
+      }
+    }
+  };
   constructor( private dataService: DataService) { }
 
   ngOnInit() {
 
   }
-  sliderEvent(event) {
-    this.arrayOfItemsToSort = this.arrayOfItemsToSort.filter(item => item.discountedPrice >= event);
+
+  sliderEvent(value) {
+    this.arrayOfItemsToSort = this.arrayOfItemsToSort.filter(item => item.discountedPrice >= value);
   }
   filterItems() {
       this.messageEvent.emit(this.arrayOfItemsToSort);
