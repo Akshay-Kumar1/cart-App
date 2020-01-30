@@ -24,9 +24,7 @@ export class FilterComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>Min price:</b> \u20B9' + value;
-        case LabelType.High:
-          return '<b>Max price:</b> \u20B9' + value;
+          return '<span>Min price:</span> \u20B9' + value;
         default:
           return '\u20B9' + value;
       }
