@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "cartApp"
+  "defaultProject": "cartApp",
+  "cli": {
+    "analytics": false
+  }
 }
