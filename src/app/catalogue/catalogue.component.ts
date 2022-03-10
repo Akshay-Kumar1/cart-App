@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
-import { Router } from '@angular/router';
 import { CartViewModel } from '../models/view-model/cart.view-model';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
@@ -32,9 +32,7 @@ export class CatalogueComponent implements OnInit {
     this.catalogueLoading = true;
   }
  public getCatalogueItems() {
-  this.userService.getItems()
-  .pipe(takeUntil(this.destroy$))
-    .subscribe((data: any) => {
+      let data = this.userService.getItems()
       this.arrayOfItems = data;
       this.dataService.changeMessage(this.arrayOfItems);
       this.itemLength = Object.keys(data).length;
@@ -42,12 +40,9 @@ export class CatalogueComponent implements OnInit {
         this.discountPrice = (data[i].discount * data[i].price) / 100;
         // tslint:disable-next-line:no-string-literal
         data[i]['discountedPrice'] = data[i].price - Math.ceil(this.discountPrice);
-        data[i]['discountAmount'] = data[i].price - data[i].discountedPrice;
+        // data[i]['discountAmount'] = data[i].price - data[i].discountedPrice;
       }
-    },
-  error => {
-    alert(error);
-  });
+
   }
   addToCart(id) {
       this.arrayOfItems.forEach(element => {
